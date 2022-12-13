@@ -13,6 +13,12 @@
             </nav>
         </div><!-- End Page Title -->
 
+            @if (session('status'))
+                <div class="container bg-info bordered text-center my-3">
+                    <h2 class="py-3 text-white">{{ session('status') }}</h2>
+                </div>
+            @endif
+
         <section class="section dashboard">
             <div class="row">
 
