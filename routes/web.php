@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -26,5 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
+
+    // category create
+
+    Route::get('/category', [CategoryCantroller::class, 'index']);
+    Route::get('/category/create', [CategoryCantroller::class, 'create']);
+    Route::post('/category', [CategoryCantroller::class, 'store']);
 
 });
