@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catagory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CategoryCantroller extends Controller
 {
@@ -47,7 +48,7 @@ class CategoryCantroller extends Controller
 
     }
 
-    public function edit($id) {
+    public function edit(Request $request, $id) {
         $category = Catagory::find($id);
         return view('admin.category.edit', compact('category'));
 
@@ -55,7 +56,7 @@ class CategoryCantroller extends Controller
 
     public function update(Request $request, $id) {
 
-        $category = new Catagory();
+        $category = Catagory::find($id);
 
         $category->name = $request->input('name');
         $category->slug = $request->input('slug');
