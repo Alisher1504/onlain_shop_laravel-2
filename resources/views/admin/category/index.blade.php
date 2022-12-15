@@ -18,13 +18,39 @@
                         <h3>
                             Category
 
-                            <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end">add
-                                category</a>
+                            <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end">add category</a>
 
                         </h3>
 
                     </div>
                     <div class="card-body">
+
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach ($category as $item)
+                              <tr>
+                                <th scope="row">{{ $item->id }}</th>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
+                                <td>
+                                    <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </td>
+                              </tr> 
+                              @endforeach
+                            </tbody>
+                          </table>
 
                     </div>
                 </div>
