@@ -40,10 +40,11 @@
                               </tr>
                             </thead>
                             <tbody>
-                              {{-- @foreach ($category as $item)
+                              @foreach ($brends as $item)
                               <tr>
                                 <th scope="row">{{ $item->id }}</th>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->slug }}</td>
                                 <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
                                 <td>
                                     <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
@@ -52,7 +53,7 @@
                                     <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                               </tr> 
-                              @endforeach --}}
+                              @endforeach
                             </tbody>
                           </table>
 
