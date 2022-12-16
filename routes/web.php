@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
 
@@ -34,8 +35,15 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::get('/category/create', [CategoryCantroller::class, 'create']);
     Route::post('/category', [CategoryCantroller::class, 'store']);
     Route::get('category/edit/{id}', [CategoryCantroller::class, 'edit']);
-    Route::get('category/edit/{id}', [CategoryCantroller::class, 'edit']);
     Route::put('category/update/{id}', [CategoryCantroller::class, 'update']);
     Route::get('category/delete/{id}', [CategoryCantroller::class, 'delete']);
     
+    // brends create
+
+    Route::get('/brends', [BrendController::class, 'index']);
+    Route::post('/brends/create', [BrendController::class, 'create']);
+
+    
+
+
 });
