@@ -12,7 +12,11 @@ class BrendController extends Controller
         return view('admin.brends.index', compact('brends'));
     }
 
-    public function create(Request $request) {
+    public function create() {
+        return view('admin.brends.create');
+    }
+
+    public function store(Request $request) {
 
         $brend = new Brends();
 
@@ -23,6 +27,24 @@ class BrendController extends Controller
         $brend->save();
 
         return redirect('admin/brends')->with('status', 'Brend Create successfully');
+
+    }
+
+    public function update($id) {
+        $brends = Brends::find($id);
+        return view('admin.brends.edit', compact('brends'));
+    }
+
+    public function edit(Request $request, $id) {
+
+        $brend = Brends::find($id);
+
+        $brend->name = $request->name;
+        $brend->slug = $request->slug;
+        $brend->status = $request->status == TRUE ? '1' : '0';
+
+        $brend->update();
+        return redirect('admin/brends')->with('status', 'Brends update successfully');
 
     }
 

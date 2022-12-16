@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include('admin.brends.modal')
 
     <main id="main" class="main">
 
@@ -21,7 +20,7 @@
                         <h3>
                             Brend list
 
-                            <a class="btn btn-primary btn-sm float-end"  data-bs-toggle="modal" data-bs-target="#exampleModal">add Brend</a>
+                            <a href="{{ url('admin/brends/create') }}" class="btn btn-primary btn-sm float-end">add Brend</a>
 
                         </h3>
 
@@ -47,7 +46,7 @@
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
                                 <td>
-                                    <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ url('admin/brends/update/'. $item->id) }}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
                                     <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>

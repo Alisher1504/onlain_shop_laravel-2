@@ -41,7 +41,10 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     // brends create
 
     Route::get('/brends', [BrendController::class, 'index']);
-    Route::post('/brends/create', [BrendController::class, 'create']);
+    Route::get('/brends/create', [BrendController::class, 'create']);
+    Route::post('/brends/store', [BrendController::class, 'store']);
+    Route::get('/brends/update/{id}', [BrendController::class, 'update']);
+    Route::put('/brends/edit/{id}', [BrendController::class, 'edit']);
 
     
 
