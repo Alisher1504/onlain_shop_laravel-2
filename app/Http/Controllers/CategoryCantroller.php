@@ -90,4 +90,16 @@ class CategoryCantroller extends Controller
 
     }
 
+    public function delete($id) {
+        
+        $delete = Catagory::find($id);
+        $path = 'uploads/category/'. $delete->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $delete->delete();
+        return redirect('admin/category')->with('status', 'Category Deloete successfully');
+
+    }
+
 }
