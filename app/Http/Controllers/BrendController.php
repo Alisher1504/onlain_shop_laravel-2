@@ -48,4 +48,10 @@ class BrendController extends Controller
 
     }
 
+    public function delete($id) {
+        $brends = Brends::find($id);
+        $brends->delete();
+        return redirect('admin/brends')->with('status', 'brends delete successfully');
+    }
+
 }
