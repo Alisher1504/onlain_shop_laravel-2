@@ -28,7 +28,14 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('admin/product') }}">
                 <i class="bi bi-person"></i>
-                <span>product</span>
+                <span>Product</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/colors') }}">
+                <i class="bi bi-person"></i>
+                <span>Color</span>
             </a>
         </li>
           

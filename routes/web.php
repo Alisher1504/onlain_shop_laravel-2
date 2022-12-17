@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 
 /*
@@ -57,6 +58,13 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/product/edit/{id}', 'edit');
         Route::put('/product/update/{id}', 'update');
         Route::get('/product/delete/{id}', 'delete');
+    });
+
+    // Colors create
+
+    Route::controller(ColorController::class)->group(function() {
+       
+        Route::get('colors', 'index');
         
     });
 
