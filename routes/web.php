@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,14 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::put('/brends/edit/{id}', [BrendController::class, 'edit']);
     Route::get('/brends/delete/{id}', [BrendController::class, 'delete']);
     
-    
+    // product create
+
+    Route::controller(ProductController::class)->group(function() {
+        Route::get('product', 'index');
+        Route::get('product/create', 'create');
+
+        
+    });
 
 
 });
