@@ -53,10 +53,10 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::controller(ProductController::class)->group(function() {
         Route::get('product', 'index');
         Route::get('product/create', 'create');
-        // Route::post('/product/store', 'store');
-
+        Route::post('/product/store', 'store');
+        Route::get('/product/edit/{id}', 'edit');
+        Route::put('/product/update/{id}', 'update');
         
     });
-    Route::post('/product/store', [ProductController::class, 'store']);
 
 });

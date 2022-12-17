@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Product;
+use App\Models\Catagory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,6 +28,9 @@ class Product extends Model
         'meta_description',
 
     ];
+    public function category() {
+        return $this->belongsTo(Catagory::class);
+    }
 
     // public function productImage() {
     //     return $this->hasMany(Product::class);

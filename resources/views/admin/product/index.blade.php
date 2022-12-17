@@ -42,16 +42,22 @@
                               @foreach ($products as $item)
                               <tr>
                                 <th scope="row">{{ $item->id }}</th>
-                                <td>{{ $item->category_id }}</td>
+                                <td>
+                                    @if ($item->category)
+                                        {{ $item->category->name }}
+                                    @else
+                                        No category
+                                    @endif
+                                </td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->selling_price }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
                                 <td>
-                                    <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ url('admin/product/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ url('admin/product/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                               </tr> 
                               @endforeach

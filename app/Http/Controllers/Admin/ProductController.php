@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Catagory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 // use App\Http\Requests\ProductFormRequest;
 
 class ProductController extends Controller
@@ -77,7 +78,7 @@ class ProductController extends Controller
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time(). '.' .$ext;
-            $file->move('assets/uploads/product/', $filename);
+            $file->move('uploads/product/', $filename);
             $product->image = $filename;
 
         }
@@ -98,6 +99,49 @@ class ProductController extends Controller
         $product->meta_description = $request->input('meta_description');
         $product->save();
         return redirect('admin/product')->with('status', 'Product add successfully');
+    }
+
+    public function edit($id) {
+        $categorys = Catagory::all();
+        $brends = Brends::all();
+        $product = Product::find($id);
+        return view('admin.product.edit', compact('product', 'categorys', 'brends'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $product = Product::find($id);
+
+        if($request->hasfile('image')) {
+            $path = 'uploads/product/'. $product->image;
+            if(File::exists($path)){
+                File::delete($path);
+            }
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$ext;
+            $file->move('uploads/product/', $filename);
+            $product->image = $filename;
+
+        }
+
+        $product->category_id = $request->input('category_id');
+        $product->name = $request->input('name');
+        $product->slug = $request->input('slug');
+        $product->brend = $request->input('brend');
+        $product->small_description = $request->input('small_description');
+        $product->description = $request->input('description');
+        $product->original_price = $request->input('original_price');
+        $product->selling_price = $request->input('selling_price');
+        $product->quantity = $request->input('quantity');
+        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->meta_title = $request->input('meta_title');
+        $product->meta_keyword = $request->input('meta_keyword');
+        $product->meta_description = $request->input('meta_description');
+        $product->update();
+        return redirect('admin/product')->with('status', 'Product update successfully');
     }
 
 }

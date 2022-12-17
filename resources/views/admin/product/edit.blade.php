@@ -25,8 +25,9 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('admin/product/store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('admin/product/update/'. $product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <ul class="nav nav-tabs my-4" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
@@ -57,34 +58,36 @@
                                     <label for="">category</label>
                                     <select name="category_id" id="" class="form-control">
                                         @foreach ($categorys as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ $category->id  == $product->category_id ? 'selected' : ''}} >
+                                            {{ $category->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
     
                                 <div class="mb-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                    <input type="text" name="name" class="form-control" value="{{ $product->name }}" required>
                                 </div>
     
                                 <div class="mb-3">
-                                    <input type="text" name="slug" class="form-control" placeholder="Slug" required>
+                                    <input type="text" name="slug" class="form-control" value="{{ $product->slug }}" required>
                                 </div>
     
                                 <div class="mb-3">
                                     <label for="">Brend</label>
                                     <select name="brend" id="" class="form-control">
                                         @foreach ($brends as $brend)
-                                            <option value="{{ $brend->id }}">{{ $brend->name }}</option>
+                                            <option value="{{ $brend->id }}" {{ $brend->id == $product->brend ? 'selected' : '' }} >{{ $brend->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
     
                                 <div class="mb-3">
-                                    <textarea name="small_description" id="" cols="30" rows="5" class="form-control" placeholder="Small_description" required></textarea>
+                                    <textarea name="small_description" id="" cols="30" rows="5" class="form-control" required>{{ $product->small_description }}</textarea>
                                 </div>
     
                                 <div class="mb-3">
-                                    <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Description" required></textarea>
+                                    <textarea name="description" id="" cols="30" rows="5" class="form-control" required>{{ $product->description }}</textarea>
                                 </div>
     
                             </div>
@@ -92,15 +95,15 @@
                                 tabindex="0">
                             
                                 <div class="mb-3">
-                                    <input type="text" name="meta_title" class="form-control" placeholder="Meta_title" required>
+                                    <input type="text" name="meta_title" class="form-control" value="{{ $product->meta_title }}" required>
                                 </div>
     
                                 <div class="mb-3">
-                                    <textarea name="meta_keyword" id="" cols="30" rows="5" placeholder="meta_keyword" class="form-control" required></textarea>
+                                    <textarea name="meta_keyword" id="" cols="30" rows="5" class="form-control" required>{{ $product->meta_keyword }}</textarea>
                                 </div>
     
                                 <div class="mb-3">
-                                    <textarea name="meta_description" id="" cols="30" rows="5" placeholder="Meta_description" class="form-control" required></textarea>
+                                    <textarea name="meta_description" id="" cols="30" rows="5" class="form-control" required>{{ $product->meta_description }}</textarea>
                                 </div>
     
                             </div>
@@ -109,19 +112,19 @@
                             
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="number" name="original_price" placeholder="Original_price" class="form-control" required>
+                                        <input type="number" name="original_price" value="{{ $product->original_price }}" class="form-control" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="selling_price" placeholder="Selling_price" class="form-control" required>
+                                        <input type="number" name="selling_price" value="{{ $product->selling_price }}" class="form-control" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="quantity" placeholder="quantity" class="form-control" required>
+                                        <input type="number" name="quantity" value="{{ $product->quantity }}" class="form-control" required>
                                     </div>
                                     <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="trending">
+                                        <input style="width: 30px; height: 30px;" type="checkbox" name="trending" {{ $product->trending == '1' ? 'checked' : '' }}>
                                     </div>
                                     <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="status">
+                                        <input style="width: 30px; height: 30px;" type="checkbox" name="status" {{ $product->status == '1' ? 'checked' : '' }}>
                                     </div>
                                 </div>
                             
@@ -132,6 +135,12 @@
 
                                 <label for="">Image</label>
                                 <input type="file" name="image" id="" class="form-control" required>
+
+                                @if ($product->image)
+                                    <img class="border p-2 my-3" width="400px" src="{{ url('uploads/product/'. $product->image) }}" alt="">
+                                @else
+                                    no Image
+                                @endif
 
                             </div>
                         </div>
