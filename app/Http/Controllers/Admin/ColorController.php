@@ -48,4 +48,11 @@ class ColorController extends Controller
 
     }
 
+    public function delete($id) {
+        $delete = Colors::find($id);
+        $delete->delete();
+
+        return redirect('admin/colors')->with('status', 'Color delete successfully');
+    }
+
 }
