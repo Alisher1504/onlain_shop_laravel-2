@@ -19,22 +19,21 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('brend')->nullable();
+            $table->string('image')->nullable();
 
-            $table->mediumText('smal_description')->nullable();
+            $table->mediumText('small_description')->nullable();
             $table->longText('description')->nullable();
 
             $table->integer('original_price');
             $table->integer('selling_price');
             $table->integer('quantity');
 
-            $table->tinyInteger('trending')->defeult('0')->comment('1=treding, 0=not treding');
-            $table->tinyInteger('status')->defeult('0')->comment('hidden, vissable');
+            $table->tinyInteger('trending')->nullable()->comment('1=treding, 0=not treding');
+            $table->tinyInteger('status')->nullable()->comment('hidden, vissable');
 
             $table->string('meta_title')->nullable();
             $table->mediumText('meta_keyword')->nullable();
             $table->mediumText('meta_description')->nullable();
-
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
         });

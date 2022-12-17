@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Catagory extends Model
 {
@@ -21,5 +22,9 @@ class Catagory extends Model
         'meta_description',
         'status'
     ];
+
+    // public function product() {
+    //     return $this->hasMany(Product::class, 'category_id', 'id');
+    // }
 
 }

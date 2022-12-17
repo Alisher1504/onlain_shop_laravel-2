@@ -25,8 +25,8 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="">
-
+                    <form action="{{ url('admin/product/store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <ul class="nav nav-tabs my-4" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
@@ -42,6 +42,11 @@
                                 <button class="nav-link" id="details-tab" data-bs-toggle="tab"
                                     data-bs-target="#details-tab-pane" type="button" role="tab"
                                     aria-controls="details-tab-pane" aria-selected="false">Details</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="image-tab" data-bs-toggle="tab"
+                                    data-bs-target="#image-tab-pane" type="button" role="tab"
+                                    aria-controls="image-tab-pane" aria-selected="false">Image</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -75,11 +80,11 @@
                                 </div>
     
                                 <div class="mb-3">
-                                    <input type="text" name="small_description" class="form-control" placeholder="Small_description">
+                                    <textarea name="small_description" id="" cols="30" rows="5" class="form-control" placeholder="Small_description"></textarea>
                                 </div>
     
                                 <div class="mb-3">
-                                    <input type="text" name="description" class="form-control" placeholder="Description">
+                                    <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Description"></textarea>
                                 </div>
     
                             </div>
@@ -121,9 +126,17 @@
                                 </div>
                             
                             </div>
+
+                            <div class="tab-pane fade" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab"
+                                tabindex="0">
+
+                                <label for="">Image</label>
+                                <input type="file" name="image" id="" class="form-control">
+
+                            </div>
                         </div>
                         
-                        <div class="mb-3 text-center">
+                        <div class="my-3 text-center">
                             <button type="submit" class="btn btn-primary btn-sm ">Save</button>
                         </div>
 
