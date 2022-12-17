@@ -29,17 +29,23 @@
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Category_id</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Selling_price</th>
+                                <th scope="col">quantity</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
                               </tr>
                             </thead>
                             <tbody>
-                              {{-- @foreach ($category as $item)
+                              @foreach ($products as $item)
                               <tr>
                                 <th scope="row">{{ $item->id }}</th>
+                                <td>{{ $item->category_id }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->selling_price }}</td>
+                                <td>{{ $item->quantity }}</td>
                                 <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
                                 <td>
                                     <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
@@ -48,7 +54,7 @@
                                     <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                               </tr> 
-                              @endforeach --}}
+                              @endforeach
                             </tbody>
                           </table>
 
