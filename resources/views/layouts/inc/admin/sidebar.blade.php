@@ -24,6 +24,14 @@
                 <span>Brend</span>
             </a>
         </li>
+        
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/product') }}">
+                <i class="bi bi-person"></i>
+                <span>product</span>
+            </a>
+        </li>
+          
 
     </ul>
 
