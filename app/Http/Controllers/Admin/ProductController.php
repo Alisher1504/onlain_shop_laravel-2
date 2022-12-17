@@ -141,7 +141,25 @@ class ProductController extends Controller
         $product->meta_keyword = $request->input('meta_keyword');
         $product->meta_description = $request->input('meta_description');
         $product->update();
+
         return redirect('admin/product')->with('status', 'Product update successfully');
+
+    }
+
+    public function delete($id) {
+
+        $delete = Product::find($id);
+
+        $path = 'update/products/'. $delete->image;
+
+        if(File::exists($path)){
+            File::delete($path);
+        }
+
+        $delete->delete();
+
+        return redirect('admin/product')->with('status', 'Product Delete successfully');
+
     }
 
 }
