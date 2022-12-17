@@ -10,7 +10,8 @@ class ColorController extends Controller
 {
     
     public function index() {
-        return view('admin.colors.index');
+        $color = Colors::all();
+        return view('admin.colors.index', compact('color'));
     }
 
     public function create() {
@@ -27,6 +28,24 @@ class ColorController extends Controller
         $color->save();
 
         return redirect('admin/colors')->with('status', 'Color create successfully');
+    }
+
+    public function edit($id) {
+        $color = Colors::find($id);
+        return view('admin.colors.edit', compact('color'));
+    }
+
+    public function update(Request $request, $id){
+
+        $color = Colors::find($id);
+
+        $color->name = $request->name;
+        $color->color = $request->color;
+        $color->status = $request->status == TRUE ? '1' : '0';
+        $color->update();
+
+        return redirect('admin/colors')->with('status', 'Color update successfully');
+
     }
 
 }

@@ -67,6 +67,9 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('colors', 'index');
         Route::get('colors/create', 'create');
         Route::post('colors/store', 'store');
+        Route::get('colors/edit/{id}', 'edit');
+        Route::put('colors/update/{id}', 'update');
+        Route::get('colors/delete/{id}', 'delete');
         
     });
 

@@ -27,7 +27,34 @@
                     </div>
                     <div class="card-body">
 
-                        
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach ($color as $item)
+                              <tr>
+                                <th scope="row">{{ $item->id }}</th>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->color }}</td>
+                                <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
+                                <td>
+                                    <a href="{{ url('admin/colors/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
+                                </td>
+                              </tr> 
+                              @endforeach
+                            </tbody>
+                          </table>
 
                     </div>
                 </div>
