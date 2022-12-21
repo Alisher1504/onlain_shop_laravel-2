@@ -5,6 +5,7 @@ use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 
 /*
@@ -31,7 +32,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
-    // category create
+    // Category
 
     Route::get('/category', [CategoryCantroller::class, 'index']);
     Route::get('/category/create', [CategoryCantroller::class, 'create']);
@@ -40,7 +41,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::put('category/update/{id}', [CategoryCantroller::class, 'update']);
     Route::get('category/delete/{id}', [CategoryCantroller::class, 'delete']);
     
-    // brends create
+    // Brends
 
     Route::get('/brends', [BrendController::class, 'index']);
     Route::get('/brends/create', [BrendController::class, 'create']);
@@ -49,7 +50,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::put('/brends/edit/{id}', [BrendController::class, 'edit']);
     Route::get('/brends/delete/{id}', [BrendController::class, 'delete']);
     
-    // product create
+    // Product
 
     Route::controller(ProductController::class)->group(function() {
         Route::get('product', 'index');
@@ -60,7 +61,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/product/delete/{id}', 'delete');
     });
 
-    // Colors create
+    // Colors
 
     Route::controller(ColorController::class)->group(function() {
        
@@ -71,6 +72,14 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::put('colors/update/{id}', 'update');
         Route::get('colors/delete/{id}', 'delete');
         
+    });
+
+    // Slider
+
+    Route::controller(SliderController::class)->group(function() {
+
+        Route::get('slider', 'index');
+
     });
 
 });
