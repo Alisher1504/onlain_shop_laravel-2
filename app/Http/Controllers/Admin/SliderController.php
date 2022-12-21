@@ -24,26 +24,43 @@ class SliderController extends Controller
 
     public function store(SliderFormRequest $request) {
         
-        $validate = $request->validated();
+        // $validate = $request->validated();
 
-        if($request->hasFile('image')) {
+        // if($request->hasfile('image')) {
+
+        //     $file = $request->file('image');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' .$ext;
+        //     $file->move('uploads/slider/', $filename);
+        //     $validate['image'] = "uploads/slider/$filename";
+
+        // }
+
+        // $validate['status'] = $request->status == TRUE ? '1' : '0';
+
+        // Slider::create([
+        //     'title' => $validate['title'],
+        //     'description' => $validate['description'],
+        //     'image' => $validate['image'],
+        //     'status' => $validate['status']
+        // ]);
+
+        $data = new Slider();
+
+        if($request->hasfile('image')) {
 
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' .$ext;
+            $filename = time(). '.' .$ext;
             $file->move('uploads/slider/', $filename);
-            $validate['image'] = "uploads/slider/$filename";
+            $data->image = $filename;
 
         }
 
-        $validate['status'] = $request->status == TRUE ? '1' : '0';
-
-        Slider::create([
-            'title' => $validate['title'],
-            'description' => $validate['description'],
-            'image' => $validate['image'],
-            'status' => $validate['status']
-        ]);
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->status = $request->status == TRUE ? '1' : '0';
+        $data->save();
 
         return redirect('admin/slider')->with('status', 'Slider create successfully');
 
@@ -78,6 +95,18 @@ class SliderController extends Controller
         $data->update();
         return redirect('admin/slider')->with('status', 'Slider create successfully');
 
+    }
+
+    public function delete($id) {
+        $slider_delete = Slider::find($id);
+
+        $path = 'uploads/slider/'. $slider_delete->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $slider_delete->delete();
+        
+        return redirect('admin/slider')->with('status','Slider Delete successfully');
     }
 
 }
