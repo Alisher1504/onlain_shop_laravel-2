@@ -79,6 +79,9 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::controller(SliderController::class)->group(function() {
 
         Route::get('slider', 'index');
+        Route::get('slider/create', 'create');
+        Route::post('slider/store', 'store');
+
 
     });
 
