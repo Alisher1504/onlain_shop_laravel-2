@@ -45,14 +45,14 @@
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
-                                            <img style="width: 100px" src="{{ asset("$item->image") }}" alt="">
+                                            <img style="width: 100px" src="{{ asset('uploads/slider/'. $item->image) }}" alt="">
                                         </td>
                                         <td>{{ $item->status == '1' ? 'Hidden' : 'Visabled' }}</td>
                                         <td>
-                                            <a href="" class="btn btn-seccess">Edit</a>
+                                            <a href="{{ url('admin/slider/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-denger">Delete</a>
+                                            <a href="" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
 

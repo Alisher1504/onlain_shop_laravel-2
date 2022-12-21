@@ -19,23 +19,25 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ url('admin/slider/store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('admin/slider/update/'.$slider->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="my-3">
-                            <input type="text" name="title" class="form-control" placeholder="Title" >
+                            <input type="text" name="title" class="form-control" value="{{ $slider->title }}">
                         </div>
                 
                         <div class="my-3">
-                            <textarea name="description" class="form-control" id="" cols="30" rows="5" placeholder="Description"></textarea>
+                            <textarea name="description" class="form-control" id="" cols="30" rows="5" >{{ $slider->description }}</textarea>
                         </div>
                 
                         <div class="mb-3">
-                            <input type="file" name="image" class="form-control" >
+                            <img style="width: 200px;" src="{{ asset("$slider->image") }}" alt="">
+                            <input type="file" name="image" class="form-control mt-3" >
                         </div>
 
                         <div style="display: flex; align-items: center;" class="mb-3">
-                            Status <input style="width: 30px; height: 30px; margin-left:10px;" type="checkbox" name="status">
+                            Status <input style="width: 30px; height: 30px; margin-left:10px;" type="checkbox" name="status" {{ $slider->status == TRUE ? 'checked' : '0' }}>
                         </div>
                     </div>
                 
