@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/slider.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/product.css') }}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>

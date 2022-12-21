@@ -29,7 +29,7 @@ class Product extends Model
 
     ];
     public function category() {
-        return $this->belongsTo(Catagory::class);
+        return $this->belongsTo(Catagory::class, 'category_id', 'id');
     }
 
     // public function productImage() {

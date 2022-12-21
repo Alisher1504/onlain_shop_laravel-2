@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [FrontController::class, 'index']);
 Route::get('/collections', [FrontController::class, 'category']);
+Route::get('/collections/{category_slug}', [FrontController::class, 'products']);
 
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
