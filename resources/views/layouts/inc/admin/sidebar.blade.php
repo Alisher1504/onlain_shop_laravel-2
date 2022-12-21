@@ -38,6 +38,13 @@
                 <span>Color</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/slider') }}">
+                <i class="bi bi-person"></i>
+                <span>Slider</span>
+            </a>
+        </li>
           
 
     </ul>
