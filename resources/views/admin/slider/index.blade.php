@@ -38,28 +38,25 @@
                               </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($products as $item)
-                                <tr>
-                                    <th scope="row">{{ $item->id }}</th>
-                                    <td>
-                                        @if ($item->category)
-                                            {{ $item->category->name }}
-                                        @else
-                                            No category
-                                        @endif
-                                    </td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->selling_price }}</td>
-                                    <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->status == '1' ? 'Hidden' : 'Visable'}}</td>
-                                    <td>
-                                        <a href="{{ url('admin/product/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('admin/product/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr> 
-                                @endforeach --}}
+                                @foreach ($slider as $item)
+                                
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>
+                                            <img style="width: 100px" src="{{ asset("$item->image") }}" alt="">
+                                        </td>
+                                        <td>{{ $item->status == '1' ? 'Hidden' : 'Visabled' }}</td>
+                                        <td>
+                                            <a href="" class="btn btn-seccess">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-denger">Delete</a>
+                                        </td>
+                                    </tr>
+
+                                @endforeach
                             </tbody>
                           </table>
 
