@@ -16,6 +16,7 @@ class Product extends Model
         'name',
         'slug',
         'brend',
+        'image',
         'small_description',
         'description',
         'original_price',
@@ -33,7 +34,7 @@ class Product extends Model
     }
 
     // public function productImage() {
-    //     return $this->hasMany(Product::class);
+    //     return $this->hasMany(Product::class, 'product_id', 'id');
     // }
 
 }

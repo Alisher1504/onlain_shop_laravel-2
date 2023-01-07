@@ -1,4 +1,15 @@
 @extends('layouts.app')
+@section('title')
+    {{ $category->meta_title }}
+@endsection
+
+@section('mete_keyword')
+    {{ $category->mete_keyword }}
+@endsection
+
+@section('meta_description')
+    {{ $category->meta_description }}
+@endsection
 @section('content')
 
 <div class="py-3 py-md-5 bg-light">
@@ -12,19 +23,24 @@
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-card-img">
-                            <label class="stock bg-success"></label>
-                            <img src="hp-laptop.jpg" alt="Laptop">
+                            @if($item->quantity > 0)
+                                <label class="stock bg-success">In Stock</label>
+                            @else
+                                <label class="stock bg-success">Ouy of Stock</label>
+                            @endif
+                            <img src="{{ asset('uploads/product/'. $item->image) }}" alt="Laptop">
+                            
                         </div>
                         <div class="product-card-body">
-                            <p class="product-brand">{{ $item->name }}</p>
+                            <p class="product-brand">{{ $item->brend }}</p>
                             <h5 class="product-name">
-                            <a href="">
-                                    HP Laptop 
+                            <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
+                                    {{ $item->name }}
                             </a>
                             </h5>
                             <div>
-                                <span class="selling-price">$500</span>
-                                <span class="original-price">$799</span>
+                                <span class="selling-price">{{ $item->selling_price }}</span>
+                                <span class="original-price">{{ $item->original_price }}</span>
                             </div>
                             <div class="mt-2">
                                 <a href="" class="btn btn1">Add To Cart</a>
