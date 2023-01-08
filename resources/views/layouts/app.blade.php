@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/wishlist.css') }}">
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
