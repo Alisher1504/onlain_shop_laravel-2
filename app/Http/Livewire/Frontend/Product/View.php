@@ -3,11 +3,35 @@
 namespace App\Http\Livewire\Frontend\Product;
 
 use Livewire\Component;
+use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
 
 class View extends Component
 {
 
     public $category, $product;
+
+    public function addToWisherlist($productId) {
+        
+        if(Auth::check()) {
+            
+            if(Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()){
+                session()->flash('message', 'Alredy added');
+                return false; 
+            } else {
+                Wishlist::create([
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $productId
+                ]);
+                session()->flash('message', 'Wishlist add successfully');
+            }
+
+        } else {
+            session()->flash('message', 'Please Login to Continue');
+            return false;
+        }
+
+    }
 
     public function mount($category, $product) {
         $this->category = $category;

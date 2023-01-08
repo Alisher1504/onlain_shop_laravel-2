@@ -12,7 +12,7 @@
     <meta name="author" content="Alisher">
     
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    @livewireStyles
     <!-- Fonts -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -33,5 +33,8 @@
             @yield('content')
         </main>
     </div>
+
+    @livewireScripts
+
 </body>
 </html>
