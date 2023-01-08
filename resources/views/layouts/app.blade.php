@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,7 @@
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keyword')">
     <meta name="author" content="Alisher">
-    
+
     <title>{{ config('app.name', 'Laravel') }}</title>
     @livewireStyles
     <!-- Fonts -->
@@ -21,9 +22,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/product.css') }}">
-    <!-- Scripts -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
 <body>
     <div id="app">
 
@@ -34,7 +42,19 @@
         </main>
     </div>
 
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+
+        window.addEventListener('message', event => {
+            alertify.set('notifier','position', 'top-right');
+            alertify.success(event.detail.text, event.detail.type);
+        });
+
+    </script>
+
     @livewireScripts
 
 </body>
+
 </html>
