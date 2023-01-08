@@ -34,7 +34,12 @@ Route::get('/collections', [FrontController::class, 'category']);
 Route::get('/collections/{category_slug}', [FrontController::class, 'products']);
 Route::get('/collections/{category_slug}/{product_slug}', [FrontController::class, 'productsview']);
 
-Route::get('/wishlist', [WishlistController::class, 'index']);
+Route::middleware(['auth'])->group(function() {
+
+    Route::get('/wishlist', [WishlistController::class, 'index']);
+    
+});
+
 
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 

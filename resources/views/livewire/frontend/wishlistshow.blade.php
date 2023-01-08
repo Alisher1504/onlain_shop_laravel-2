@@ -28,7 +28,7 @@
                                         <div class="col-md-6 my-auto">
                                             <a href="{{ url('collections/'. $item->product->category->slug .'/'.$item->product->slug) }}">
                                                 <label class="product-name">
-                                                    <img src="{{ asset('uploads/product/'. $item->product->image) }}" style="width: 50px; height: 50px" alt="">
+                                                    <img src="{{ asset('uploads/product/'. $item->product->image) }}" style="width: 100px; height: 100px" alt="">
                                                     {{ $item->product->name }}
                                                 </label>
                                             </a>
@@ -39,9 +39,14 @@
                                         
                                         <div class="col-md-4 col-12 my-auto">
                                             <div class="remove">
-                                                <a href="" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i> Remove
-                                                </a>
+                                                <button type="button" wire:click="remowewishlist({{ $item->id }})" class="btn btn-danger btn-sm">
+                                                    <span wire:loading.remove wire:target="remowewishlist({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i> Remove
+                                                    </span>
+                                                    <span wire:loading wire:target="remowewishlist({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i> Loading...
+                                                    </span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
