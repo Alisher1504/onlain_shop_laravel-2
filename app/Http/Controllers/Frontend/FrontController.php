@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Brends;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Catagory;
@@ -31,10 +32,10 @@ class FrontController extends Controller
         // }
 
         if(Catagory::where('slug', $category_slug)->exists()) {
-
+            $brend = Brends::all();
             $category = Catagory::where('slug', $category_slug)->first();
             $product = Product::where('category_id', $category->id)->where('status', '0')->get();
-            return view('frontend.collections.product.index', compact('category', 'product'));
+            return view('frontend.collections.product.index', compact('category', 'product', 'brend'));
 
         }
         else{
@@ -42,5 +43,25 @@ class FrontController extends Controller
         }
         
     }
+
+
+    public function productsview(string $category_slug, string $product_slug) {
+
+        $category = Catagory::where('slug', $category_slug)->first();
+        if($category) {
+            $product = $category->product()->where('slug', $product_slug)->where('status', '0')->first();
+            if($product){
+                return view('frontend.collections.product.view', compact('product','category'));
+            } else {
+                return redirect()->back();
+            }
+            
+        }
+        else{
+            return redirect()->back();
+        }
+
+    }
+
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Brends;
 use App\Models\Product;
 use App\Models\Catagory;
 use Illuminate\Database\Eloquent\Model;
@@ -37,4 +38,7 @@ class Product extends Model
     //     return $this->hasMany(Product::class, 'product_id', 'id');
     // }
 
+    // public function brend() {
+    //     return $this->belongsTo(Brends::class, 'id');
+    // }
 }

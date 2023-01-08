@@ -32,6 +32,8 @@ Route::get('/', [FrontController::class, 'index']);
 Route::get('/collections', [FrontController::class, 'category']);
 Route::get('/collections/{category_slug}', [FrontController::class, 'products']);
 
+Route::get('/collections/{category_slug}/{product_slug}', [FrontController::class, 'productsview']);
+
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);

@@ -15,4 +15,6 @@ class Brends extends Model
         'status'
     ];
 
+    
+
 }
