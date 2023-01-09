@@ -102,6 +102,9 @@ class View extends Component
                                 'product_id' => $productId,
                                 'quantity' => $this->quantityCount
                             ]);
+
+                            $this->emit('cardAddedUpdated');
+
                             $this->dispatchBrowserEvent('message', [
                                 'text' => 'Product add to card',
                                 'type' => 'success',
