@@ -75,4 +75,50 @@ class View extends Component
             'product' => $this->product
         ]);
     }
+
+    public function addToCard(int $productId) {
+
+        if(Auth::check()) {
+            
+            if($this->product->where('id', $productId)->where('status', '0')->exists()){
+
+                if($this->product->quantity > 0) {
+
+                    if($this->product->quantity > $this->quantityCount) {
+                        dd('good');
+                    } else {
+                        $this->dispatchBrowserEvent('message', [
+                            'text' => 'only' . $this->product->quantity . ' Quantity Aviable' ,
+                            'type' => 'warning',
+                            'status' => 404
+                        ]);
+                    }
+
+                } else {
+                    $this->dispatchBrowserEvent('message', [
+                        'text' => 'out of stock',
+                        'type' => 'info',
+                        'status' => 404
+                    ]);
+                }
+
+            } else {
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'product does not exists',
+                    'type' => 'info',
+                    'status' => 404
+                ]);
+            }
+
+        } else {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Please Login to add to card',
+                'type' => 'info',
+                'status' => 401
+            ]);
+        }
+
+    }
+
+
 }

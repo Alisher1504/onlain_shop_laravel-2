@@ -35,7 +35,11 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+
+                            <button wire:click="addToCard({{ $product->id }})" type="button" class="btn btn1">
+                                <i class="fa fa-shopping-cart"></i> Add To Cart
+                            </button>
+
                             <button  type="button" wire:click="addToWisherlist({{ $product->id }})" readonly class="btn btn1">
                                 <span wire:loading.remove wire:tagret="addToWisherlist">
                                     <i class="fa fa-heart"></i> Add To Wishlist
