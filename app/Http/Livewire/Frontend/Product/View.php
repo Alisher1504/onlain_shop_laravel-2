@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Frontend\Product;
 
+use App\Models\Card;
 use Livewire\Component;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
@@ -84,16 +85,39 @@ class View extends Component
 
                 if($this->product->quantity > 0) {
 
-                    if($this->product->quantity > $this->quantityCount) {
-                        dd('good');
-                    } else {
-                        $this->dispatchBrowserEvent('message', [
-                            'text' => 'only' . $this->product->quantity . ' Quantity Aviable' ,
-                            'type' => 'warning',
-                            'status' => 404
-                        ]);
-                    }
+                    if(Card::where('user_id', auth()->user()->id)->where('product_id',$productId)->exists()) {
 
+                        $this->dispatchBrowserEvent('message', [
+                            'text' => 'Product alredy added',
+                            'type' => 'danger',
+                            'status' => 200
+                        ]);
+
+                    } else {
+
+                        if($this->product->quantity > $this->quantityCount) {
+                        
+                            Card::create([
+                                'user_id' => auth()->user()->id,
+                                'product_id' => $productId,
+                                'quantity' => $this->quantityCount
+                            ]);
+                            $this->dispatchBrowserEvent('message', [
+                                'text' => 'Product add to card',
+                                'type' => 'success',
+                                'status' => 200
+                            ]);
+                            
+                        } else {
+                            $this->dispatchBrowserEvent('message', [
+                                'text' => 'only' . $this->product->quantity . ' Quantity Aviable' ,
+                                'type' => 'warning',
+                                'status' => 404
+                            ]);
+                        }
+
+                    }
+ 
                 } else {
                     $this->dispatchBrowserEvent('message', [
                         'text' => 'out of stock',
