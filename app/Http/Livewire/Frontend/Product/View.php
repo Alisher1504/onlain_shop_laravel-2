@@ -9,7 +9,21 @@ use Illuminate\Support\Facades\Auth;
 class View extends Component
 {
 
-    public $category, $product;
+    public $category, $product, $quantityCount = 1;
+
+
+    public function decrementQuantity() {
+        if($this->quantityCount > 1) {
+            $this->quantityCount--;
+        }
+    }
+
+    public function incrementQuantity() {
+        if($this->quantityCount < 10) {
+            $this->quantityCount++;
+        }
+    }
+
 
     public function addToWisherlist($productId) {
         
