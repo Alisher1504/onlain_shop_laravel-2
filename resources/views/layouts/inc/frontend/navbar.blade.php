@@ -19,7 +19,7 @@
                     <ul class="nav justify-content-end">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('card') }}">
                                 <i class="fa fa-shopping-cart"></i> Cart (<livewire:frontend.card.card-count />)
                             </a>
                         </li>
