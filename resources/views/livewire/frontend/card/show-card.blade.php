@@ -55,9 +55,14 @@
                                         </div>
                                         <div class="col-md-2 col-5 my-auto">
                                             <div class="remove">
-                                                <a href="" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i> Remove
-                                                </a>
+                                                <button type="button" wire:click="removeCardItem({{ $item->id }})" class="btn btn-danger btn-sm">
+                                                    <span wire:loading.remove wire:terget="removeCardItem({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i> Remove
+                                                    </span>
+                                                    <span wire:loading wire:terget="removeCardItem({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i> Loading...
+                                                    </span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
