@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CardController;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishlistController;
 
 /*
@@ -39,6 +40,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::get('/wishlist', [WishlistController::class, 'index']);
     Route::get('/card', [CardController::class, 'index']);
+    Route::get('/checkout', [CheckoutController::class, 'index']);
     
 });
 
