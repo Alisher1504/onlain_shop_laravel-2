@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/product.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/wishlist.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/checkout.css') }}"> --}}
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
