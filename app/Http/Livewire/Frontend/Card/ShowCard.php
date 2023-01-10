@@ -8,7 +8,7 @@ use Livewire\Component;
 class ShowCard extends Component
 {
 
-    public $card;
+    public $card, $totalPrice = 0;
 
     public function removeCardItem($cardId) {
 
