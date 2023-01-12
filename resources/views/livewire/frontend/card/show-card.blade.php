@@ -105,7 +105,7 @@
                             <span class="float-end">${{ $totalPrice }}</span>
                         </h4>
                         <hr>
-                        <a href="{{ url('/cheskout') }}" class="btn btn-warning w-100">Checkout</a>
+                        <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">Checkout</a>
 
                     </div>
 

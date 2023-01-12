@@ -10,7 +10,7 @@
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             Item Total Amount :
-                            <span class="float-end">$5454</span>
+                            <span class="float-end">${{ $totalProductAmout }}</span>
                         </h4>
                         <hr>
                         <small>* Items will be delivered in 3 - 5 days.</small>
