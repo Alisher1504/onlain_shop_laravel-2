@@ -52,6 +52,8 @@ class CheckoutShow extends Component
 
         }
 
+        return $order;
+
     }
 
     public function codOrder() {
