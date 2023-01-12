@@ -35,6 +35,7 @@ Route::get('/', [FrontController::class, 'index']);
 Route::get('/collections', [FrontController::class, 'category']);
 Route::get('/collections/{category_slug}', [FrontController::class, 'products']);
 Route::get('/collections/{category_slug}/{product_slug}', [FrontController::class, 'productsview']);
+Route::get('/thankYou', [FrontController::class, 'thankYou']);
 
 Route::middleware(['auth'])->group(function() {
 
@@ -43,6 +44,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/checkout', [CheckoutController::class, 'index']);
     
 });
+
 
 
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
