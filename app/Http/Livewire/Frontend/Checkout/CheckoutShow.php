@@ -64,7 +64,7 @@ class CheckoutShow extends Component
         if($placeOrder) {
 
             Card::where('user_id', auth()->user()->id)->delete();
-
+            session()->flash('message', 'Order Plased successfully');
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Order placed successfully',
                 'type' => 'success',
@@ -83,7 +83,7 @@ class CheckoutShow extends Component
     }
 
     public function totalproductAmout() {
-
+        $this->totalProductAmout = 0;
         $this->cards = Card::where('user_id', auth()->user()->id)->get();
         foreach($this->cards as $item){
             $this->totalProductAmout += $item->product->selling_price * $item->quantity;

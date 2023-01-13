@@ -5,6 +5,15 @@
     <div class="py-3 pyt-md-4">
         <div class="container">
             <div class="row">
+                
+                <div class="col-md-12 text-center">
+
+                    @if (session('message'))
+                        <h5 class="alert alert-success">{{ session('message') }}</h5>
+                    @endif
+
+                </div>
+
                 <div class="col-md-12 text-center">
                     <div class="p-4 shadow bg-white">
                         <h4>Thanks You for shopping with my eCommerce</h4>
