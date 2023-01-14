@@ -8,7 +8,7 @@
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             <i class="fa fa-shopping-cart text-dark">My order detailes</i>
-                            <a href="" class="btn btn-danger float-end">Back</a>
+                            <a href="{{ url('orders') }}" class="btn btn-danger float-end">Back</a>
                         </h4>
                         <hr>
 
@@ -54,6 +54,9 @@
                                 </thead>
 
                                 <tbody>
+                                    @php
+                                        $totalprice = 0;
+                                    @endphp
                                     @foreach ($order->orderItems as $item)
                                     
                                         <tr>
@@ -68,12 +71,18 @@
                                                 @endif
                                             </td>
                                             <td width="10%">{{ $item->product->name }}</td>
-                                            <td width="10%">{{ $item->price }}</td>
-                                            <td width="10%">{{ $item->quantity }}</td>
-                                            <td width="10%">{{ $item->quantity * $item->price }}</td>
+                                            <td width="10%">${{ $item->price }}</td>
+                                            <td width="10%">${{ $item->quantity }}</td>
+                                            <td width="10%">${{ $item->quantity * $item->price }}</td>
                                         </tr>
-
+                                        @php
+                                            $totalprice += $item->quantity * $item->price;
+                                        @endphp
                                     @endforeach
+                                    <tr>
+                                        <td colspan="5" class="fw-bold">Total amout</td>
+                                        <td colspan="1" class="fw-bold">${{ $totalprice }}</td>
+                                    </tr>
                                 </tbody>
 
                             </table>
