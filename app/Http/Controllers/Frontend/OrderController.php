@@ -14,4 +14,18 @@ class OrderController extends Controller
         $order = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.order.index', compact('order'));
     }
+
+    public function show($id){
+
+        $order = Order::where('user_id', Auth::user()->id)->where('id', $id)->first();
+
+        if($order){
+            return view('frontend.order.show');
+        } else {
+            return redirect()->back();
+        }
+
+        
+
+    }
 }

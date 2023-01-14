@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/card', [CardController::class, 'index']);
     Route::get('/checkout', [CheckoutController::class, 'index']);
     Route::get('/orders', [OrderController::class, 'index']);
+    Route::get('orders/{id}', [OrderController::class, 'show']);
     
 });
 
