@@ -20,7 +20,7 @@ class OrderController extends Controller
         $order = Order::where('user_id', Auth::user()->id)->where('id', $id)->first();
 
         if($order){
-            return view('frontend.order.show');
+            return view('frontend.order.show', compact('order'));
         } else {
             return redirect()->back();
         }
