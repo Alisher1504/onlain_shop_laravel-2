@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CardController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishlistController;
 
@@ -110,7 +111,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     //Orders
 
-    Route::controller(OrderController::class)->group(function() {
+    Route::controller(AdminOrderController::class)->group(function() {
         Route::get('/orders', 'index');
     });
 
