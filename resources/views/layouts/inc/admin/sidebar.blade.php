@@ -45,6 +45,13 @@
                 <span>Slider</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/orders') }}">
+                <i class="bi bi-person"></i>
+                <span>Orders</span>
+            </a>
+        </li>
           
 
     </ul>

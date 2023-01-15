@@ -108,4 +108,10 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('slider/delete/{id}', 'delete');   
     });
 
+    //Orders
+
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('/orders', 'index');
+    });
+
 });
