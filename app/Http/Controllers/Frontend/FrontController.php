@@ -76,7 +76,10 @@ class FrontController extends Controller
     }
 
     public function featured() {
-        
+
+        $featured = Product::where('featured', '1')->latest()->get();
+        return view('frontend.pages.featured-arrive', compact('featured'));
+
     }
 
 
