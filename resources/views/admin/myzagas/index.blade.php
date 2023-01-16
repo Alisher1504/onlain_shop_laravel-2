@@ -9,6 +9,37 @@
                     <div class="card-header">
 
                         <h3>Orders</h3>
+                    </div>
+                        
+                    <div class="card-body">
+
+                        <form action="" method="GET">
+
+                            <div class="row my-3">
+                                <div class="col-md-3">
+                                    <label>Filter by Date</label>
+                                    <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Filter by Status</label>
+                                    <select name="status" class="form-select">
+                                        <option value="">Select Status</option>
+                                        <option value="in progress">In progress</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="cancelled">Cancelled</option>
+                                        <option value="out-for-delivery">Out for delivery</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                </div>
+                            </div>
+
+                        </form>
 
                         <div class="table-responsive">
 
@@ -53,7 +84,6 @@
                             </div>
 
                         </div>
-
                     </div>
                     
                 </div>
