@@ -117,11 +117,17 @@
                                     <div class="col-md-4">
                                         <input type="number" name="quantity" placeholder="quantity" class="form-control" required>
                                     </div>
-                                    <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="trending">
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">trending</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="trending">
                                     </div>
-                                    <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="status">
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">featured</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="featured">
+                                    </div>
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">status</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status">
                                     </div>
                                 </div>
                             

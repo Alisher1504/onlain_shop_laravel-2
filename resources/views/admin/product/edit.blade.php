@@ -120,12 +120,22 @@
                                     <div class="col-md-4">
                                         <input type="number" name="quantity" value="{{ $product->quantity }}" class="form-control" required>
                                     </div>
-                                    <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="trending" {{ $product->trending == '1' ? 'checked' : '' }}>
+
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">trending</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="trending" {{ $product->trending == '1' ? 'checked' : '' }}>
                                     </div>
-                                    <div class="col-md-4 my-3">
-                                        <input style="width: 30px; height: 30px;" type="checkbox" name="status" {{ $product->status == '1' ? 'checked' : '' }}>
+
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">trending</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status" {{ $product->status == '1' ? 'checked' : '' }}>
                                     </div>
+
+                                    <div class="col-md-4 my-3 input-group">
+                                        <span class="input-group-text">featured</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status" {{ $product->featured == '1' ? 'checked' : '' }}>
+                                    </div>
+
                                 </div>
                             
                             </div>

@@ -93,6 +93,7 @@ class ProductController extends Controller
         $product->selling_price = $request->input('selling_price');
         $product->quantity = $request->input('quantity');
         $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->featured = $request->input('featured') == TRUE ? '1' : '0';
         $product->status = $request->input('status') == TRUE ? '1' : '0';
         $product->meta_title = $request->input('meta_title');
         $product->meta_keyword = $request->input('meta_keyword');
@@ -137,6 +138,7 @@ class ProductController extends Controller
         $product->quantity = $request->input('quantity');
         $product->trending = $request->input('trending') == TRUE ? '1' : '0';
         $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->featured = $request->input('featured') == TRUE ? '1' : '0';
         $product->meta_title = $request->input('meta_title');
         $product->meta_keyword = $request->input('meta_keyword');
         $product->meta_description = $request->input('meta_description');
