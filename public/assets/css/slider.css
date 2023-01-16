@@ -29,3 +29,10 @@
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
+.underline{
+    height: 4px;
+    width: 100px;
+    background-color: #2874f0;
+    margin: 10px 0px;
+}
