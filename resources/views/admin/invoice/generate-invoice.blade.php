@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Invoice #{{ $invoice->id }}</title>
+    <title>Invoice #{{ $order->id }}</title>
 
     <style>
         html,
@@ -112,7 +112,7 @@
                     <h2 class="text-start">Alisher Ecommerce</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
-                    <span>Invoice Id: #{{ $invoice->id }}</span> <br>
+                    <span>Invoice Id: #{{ $order->id }}</span> <br>
                     <span>Date: {{ date('Y-m-d') }}</span> <br>
                     <span>Zip code : 560077</span> <br>
                     <span>Address: Matonat 50</span> <br>
@@ -126,38 +126,38 @@
         <tbody>
             <tr>
                 <td>Order Id:</td>
-                <td>{{ $invoice->id }}</td>
+                <td>{{ $order->id }}</td>
 
                 <td>Full Name:</td>
-                <td>{{ $invoice->fullname }}</td>
+                <td>{{ $order->fullname }}</td>
             </tr>
             <tr>
                 <td>Tracking Id/No.:</td>
-                <td>{{ $invoice->tracking_no }}</td>
+                <td>{{ $order->tracking_no }}</td>
 
                 <td>Email Id:</td>
-                <td>{{ $invoice->email }}</td>
+                <td>{{ $order->email }}</td>
             </tr>
             <tr>
                 <td>Ordered Date:</td>
-                <td>{{ $invoice->created_at->format('d-m-y h:i A') }}</td>
+                <td>{{ $order->created_at->format('d-m-y h:i A') }}</td>
 
                 <td>Phone:</td>
-                <td>{{ $invoice->phone }}</td>
+                <td>{{ $order->phone }}</td>
             </tr>
             <tr>
                 <td>Payment Mode:</td>
-                <td>{{ $invoice->payment_mode }}</td>
+                <td>{{ $order->payment_mode }}</td>
 
                 <td>Address:</td>
-                <td>{{ $invoice->address }}</td>
+                <td>{{ $order->address }}</td>
             </tr>
             <tr>
                 <td>Order Status:</td>
-                <td>{{ $invoice->status_message }}</td>
+                <td>{{ $order->status_message }}</td>
 
                 <td>Pin code:</td>
-                <td>{{ $invoice->pincode }}</td>
+                <td>{{ $order->pincode }}</td>
             </tr>
         </tbody>
     </table>
@@ -182,7 +182,7 @@
             @php
                 $totalprice = 0;
             @endphp
-            @foreach ($invoice->orderItems as $item)
+            @foreach ($order->orderItems as $item)
             
                 <tr>
                     <td width="10%">{{ $item->id }}</td>
@@ -196,8 +196,8 @@
                 @endphp
             @endforeach
             <tr>
-                <td colspan="5" class="fw-bold">Total amout</td>
-                <td colspan="1" class="fw-bold">${{ $totalprice }}</td>
+                <td colspan="4" class="total-heading">Total amout</td>
+                <td colspan="1" class="total-heading">${{ $totalprice }}</td>
             </tr>
         </tbody>
 
