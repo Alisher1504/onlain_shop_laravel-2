@@ -13,7 +13,7 @@ class FrontController extends Controller
 {
     public function index() {
         $slider = Slider::where('status', '0')->get();
-        $trendingProduct = Product::where('trending', '1')->lastest()->take(15)->get();
+        $trendingProduct = Product::where('trending', '1')->latest()->take(15)->get();
         return view('frontend.index', compact('slider', 'trendingProduct'));
     }
 
