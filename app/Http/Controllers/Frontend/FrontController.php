@@ -70,7 +70,8 @@ class FrontController extends Controller
 
     public function newArrivals() {
 
-        
+        $newArrive = Product::latest()->take(16)->get();
+        return view('frontend.pages.new-arrive', compact('newArrive'));
 
     }
 

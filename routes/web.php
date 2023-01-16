@@ -33,13 +33,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [FrontController::class, 'index']);
-Route::get('/collections', [FrontController::class, 'category']);
-Route::get('/collections/{category_slug}', [FrontController::class, 'products']);
-Route::get('/collections/{category_slug}/{product_slug}', [FrontController::class, 'productsview']);
-Route::get('/thankYou', [FrontController::class, 'thankYou']);
+
 
 Route::controller(FrontController::class)->group(function() {
+    Route::get('/', [FrontController::class, 'index']);
+    Route::get('/collections', 'category');
+    Route::get('/collections/{category_slug}', 'products');
+    Route::get('/collections/{category_slug}/{product_slug}', 'productsview');
+    Route::get('/thankYou', 'thankYou');
     Route::get('new-arrivals', 'newArrivals');
 });
 
