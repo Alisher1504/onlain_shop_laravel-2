@@ -53,4 +53,9 @@ class AdminOrderController extends Controller
 
     }
 
+    public function viewInvoice($id) {
+        $invoice = Order::findOrFail($id);
+        return view('admin.invoice.generate-invoice');
+    }
+
 }
