@@ -75,5 +75,9 @@ class FrontController extends Controller
 
     }
 
+    public function featured() {
+        
+    }
+
 
 }
