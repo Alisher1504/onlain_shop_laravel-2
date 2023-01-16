@@ -22,7 +22,7 @@ class AdminOrderController extends Controller
         })->when($request->status != NULL, function($q) use($request) {
             return $q->where('status_message', $request->status);
         })->paginate(10);
-        
+
         return view('admin.myzagas.index', compact('order'));
     }
 
@@ -37,4 +37,20 @@ class AdminOrderController extends Controller
         }
  
     }
+
+    public function updateOrders(Request $request, $id) {
+
+        $order = Order::find($id);
+
+        if($order) {
+            $order->update([
+                'status_message' => $request->order_status
+            ]);
+            return redirect('admin/orders/'. $order->id)->with('message', 'Order Update successfully');
+        } else {
+            return redirect('admin/orders/'. $order->id)->with('message', 'Order it non found');
+        }
+
+    }
+
 }

@@ -4,6 +4,11 @@
     <main id="main" class="main">
 
         <div class="row">
+
+            @if (session('message'))
+                <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -12,7 +17,7 @@
 
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body mt-3">
                         <div class="shadow bg-white p-3">
                             <h4 class="text-primary">
                                 <i class="fa fa-shopping-cart text-dark">My order detailes</i>
@@ -104,12 +109,12 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body p-4">
 
                         <h4>Order Progress (Order Status Update)</h4>
                         <hr>
 
-                        <div class="row align-items-center">
+                        <div class="row align-items-center shadow p-3">
                             <div class="col-md-5">
                                 <form action="{{ url('admin/orders/'.$order->id) }}" method="POST">
                                     @csrf
