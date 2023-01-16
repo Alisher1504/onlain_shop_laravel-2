@@ -39,6 +39,11 @@ Route::get('/collections/{category_slug}', [FrontController::class, 'products'])
 Route::get('/collections/{category_slug}/{product_slug}', [FrontController::class, 'productsview']);
 Route::get('/thankYou', [FrontController::class, 'thankYou']);
 
+Route::controller(FrontController::class)->group(function() {
+    Route::get('new-arrivals', 'newArrivals');
+});
+
+
 Route::middleware(['auth'])->group(function() {
 
     Route::get('/wishlist', [WishlistController::class, 'index']);

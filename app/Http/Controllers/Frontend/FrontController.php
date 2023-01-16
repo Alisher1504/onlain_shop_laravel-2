@@ -68,5 +68,11 @@ class FrontController extends Controller
         return view('frontend.thanksYou');
     }
 
+    public function newArrivals() {
+
+        
+
+    }
+
 
 }
