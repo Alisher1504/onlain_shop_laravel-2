@@ -18,18 +18,18 @@
                             <div class="row my-3">
                                 <div class="col-md-3">
                                     <label>Filter by Date</label>
-                                    <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+                                    <input type="date" name="date" value="{{ Request::get('date') ?? date('Y-m-d') }}" class="form-control">
                                 </div>
 
                                 <div class="col-md-3">
                                     <label>Filter by Status</label>
                                     <select name="status" class="form-select">
                                         <option value="">Select Status</option>
-                                        <option value="in progress">In progress</option>
-                                        <option value="completed">Completed</option>
-                                        <option value="pending">Pending</option>
-                                        <option value="cancelled">Cancelled</option>
-                                        <option value="out-for-delivery">Out for delivery</option>
+                                        <option value="in progress" {{ Request::get('status') == 'in progress' ? 'selected' : '' }}>In progress</option>
+                                        <option value="completed" {{ Request::get('status') == 'completed' ? 'completed' : '' }}>Completed</option>
+                                        <option value="pending" {{ Request::get('status') == 'pending' ? 'pending' : '' }}>Pending</option>
+                                        <option value="cancelled" {{ Request::get('status') == 'cancelled' ? 'cancelled' : '' }}>Cancelled</option>
+                                        <option value="out-for-delivery" {{ Request::get('status') == 'out-for-delivery' ? 'out-for-delivery' : '' }}>Out for delivery</option>
                                     </select>
                                 </div>
 
