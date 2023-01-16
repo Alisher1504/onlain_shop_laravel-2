@@ -115,6 +115,10 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/orders', 'index');
         Route::get('orders/{id}', 'show');
         Route::put('orders/{id}', 'updateOrders');
+
+        Route::get('invoice/{id}', 'viewInvoice');
+        Route::get('invoice/{id}/generate', 'generateInvoice');
+        
     });
 
 });
