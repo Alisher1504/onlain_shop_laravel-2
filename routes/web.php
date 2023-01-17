@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CardController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\AdminOrderController;
