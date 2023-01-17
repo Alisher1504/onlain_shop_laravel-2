@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h4 class="footer-heading">Funda E-Commerce</h4>
+                    <h4 class="footer-heading">Alisher E-Commerce</h4>
                     <div class="footer-underline"></div>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -33,18 +33,17 @@
                     <div class="footer-underline"></div>
                     <div class="mb-2">
                         <p>
-                            <i class="fa fa-map-marker"></i> #444, some main road, some area, some street, bangalore,
-                            india - 560077
+                            <i class="fa fa-map-marker"></i> Matonat 50
                         </p>
                     </div>
                     <div class="mb-2">
                         <a href="" class="text-white">
-                            <i class="fa fa-phone"></i> +91 888-XXX-XXXX
+                            <i class="fa fa-phone"></i> +998 90 321 79 59
                         </a>
                     </div>
                     <div class="mb-2">
                         <a href="" class="text-white">
-                            <i class="fa fa-envelope"></i> fundaofwebit@gmail.com
+                            <i class="fa fa-envelope"></i> ruzmetov150499@gmail.com
                         </a>
                     </div>
                 </div>
@@ -55,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
+                    <p class=""> &copy; 2023 - Alisher - Ecommerce. All rights reserved.</p>
                 </div>
                 <div class="col-md-4">
                     <div class="social-media">

@@ -12,6 +12,13 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/') }}">
+                <i class="bi bi-person"></i>
+                <span>Home page</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('admin/category') }}">
                 <i class="bi bi-person"></i>
                 <span>Category</span>
