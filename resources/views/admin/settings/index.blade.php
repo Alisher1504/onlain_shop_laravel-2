@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="col-md-6 mb-3 input-group">
-                                <textarea name="meta_deckription" rows="3" class="form-control" placeholder="Meta description"></textarea>
+                                <textarea name="meta_description" rows="3" class="form-control" placeholder="Meta description"></textarea>
                             </div>
                         </div>
                     </div>
