@@ -6,7 +6,11 @@
       <div class="row">
         <div class="col-md-12">
 
-            <form action="" method="POST">
+            @if (session('message'))
+                <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+
+            <form action="{{ url('/admin/settings') }}" method="POST">
 
                 @csrf
 
@@ -18,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-6 my-3 input-group">
                                 <span class="input-group-text">Website name</span>
-                                <input type="text" name="website_name" class="form-control">
+                                <input type="text" name="website_name" value="{{  }}" class="form-control">
                             </div>
 
                             <div class="col-md-6 mb-3 input-group">
@@ -28,7 +32,7 @@
 
                             <div class="col-md-12 mb-3 input-group">
                                 <span class="input-group-text">Page title</span>
-                                <input type="text" name="title" class="form-control">
+                                <input type="text" name="page_title" class="form-control">
                             </div>
 
                             <div class="col-md-6 mb-3 input-group">

@@ -68,6 +68,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::controller(SettingsController::class)->group(function() {
 
         Route::get('settings', 'index');
+        Route::post('/settings', 'store');
 
     });
 
