@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/product.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/wishlist.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     {{-- owl courucel --}}
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
@@ -43,6 +44,9 @@
         <main>
             @yield('content')
         </main>
+
+        @include('layouts.inc.frontend.footer')
+
     </div>
 
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
