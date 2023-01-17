@@ -62,6 +62,14 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
+    //settings
+
+    Route::controller(SettingsController::class)->group(function() {
+
+        Route::get('settings', 'index');
+
+    });
+
     // Category
 
     Route::get('/category', [CategoryCantroller::class, 'index']);

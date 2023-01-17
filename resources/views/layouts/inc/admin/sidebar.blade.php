@@ -59,6 +59,13 @@
                 <span>Orders</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/settings') }}">
+                <i class="bi bi-person"></i>
+                <span>Settings</span>
+            </a>
+        </li>
           
 
     </ul>
