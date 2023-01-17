@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h4 class="footer-heading">Alisher E-Commerce</h4>
+                    <h4 class="footer-heading">{{ $settingsvalue->website_name ?? 'website name' }}</h4>
                     <div class="footer-underline"></div>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -33,17 +33,17 @@
                     <div class="footer-underline"></div>
                     <div class="mb-2">
                         <p>
-                            <i class="fa fa-map-marker"></i> Matonat 50
+                            <i class="fa fa-map-marker"></i> {{ $settingsvalue->address ?? 'address' }}
                         </p>
                     </div>
                     <div class="mb-2">
                         <a href="" class="text-white">
-                            <i class="fa fa-phone"></i> +998 90 321 79 59
+                            <i class="fa fa-phone"></i> {{ $settingsvalue->phone1 ?? 'phone 1' }}
                         </a>
                     </div>
                     <div class="mb-2">
                         <a href="" class="text-white">
-                            <i class="fa fa-envelope"></i> ruzmetov150499@gmail.com
+                            <i class="fa fa-envelope"></i> {{ $settingsvalue->email1 ?? 'email 1' }}
                         </a>
                     </div>
                 </div>
@@ -59,10 +59,18 @@
                 <div class="col-md-4">
                     <div class="social-media">
                         Get Connected:
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-instagram"></i></a>
-                        <a href=""><i class="fa fa-youtube"></i></a>
+                        @if ($settingsvalue->facebook)
+                            <a href="{{ $settingsvalue->facebook }}"><i class="fa fa-facebook"></i></a>
+                        @endif
+                        @if ($settingsvalue->telegram)
+                            <a href="{{ $settingsvalue->telegram }}"><i class="fa fa-telegram"></i></a>
+                        @endif
+                        @if ($settingsvalue->instagram)
+                            <a href="{{ $settingsvalue->instagram }}"><i class="fa fa-instagram"></i></a>
+                        @endif
+                        @if ($settingsvalue->youtube)
+                            <a href="{{ $settingsvalue->youtube }}"><i class="fa fa-youtube"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
