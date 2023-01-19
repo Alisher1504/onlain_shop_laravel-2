@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Brends;
 use App\Models\Slider;
 use App\Models\Product;
+use App\Models\Setting;
 use App\Models\Catagory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Main;
 
 class FrontController extends Controller
 {
@@ -15,6 +17,17 @@ class FrontController extends Controller
         $slider = Slider::where('status', '0')->get();
         $trendingProduct = Product::where('trending', '1')->latest()->take(15)->get();
         return view('frontend.index', compact('slider', 'trendingProduct'));
+    }
+
+    public function search(Request $request) {
+
+        if($request->search) {
+            $searchProduct = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(1);
+            return view('frontend.pages.search', compact('searchProduct'));
+        } else {
+            return redirect()->back()->with('message', 'Empty search');
+        }
+
     }
 
     public function category() {

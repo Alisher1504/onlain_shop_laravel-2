@@ -68,7 +68,7 @@ class SettingsController extends Controller
 
         }
         
-        return redirect()->back()->with('message', 'Setting add successfully');
+        return redirect()->with('message', 'Setting add successfully');
     }
 
 }
