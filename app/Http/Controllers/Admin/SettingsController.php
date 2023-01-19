@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Settings;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,18 +11,18 @@ class SettingsController extends Controller
     
     public function index() {
 
-        $settings = Settings::first();
+        $settings = Setting::first();
         return view('admin.settings.index', compact('settings'));
 
     }
 
     public function store(Request $request) {
 
-        $settings = Settings::first();
+        $settingsvalue = Setting::first();
 
-        if($settings) {
+        if($settingsvalue) {
 
-            $settings->update([
+            $settingsvalue->update([
                 'website_name' => $request->website_name,
                 'website_url' => $request->website_url,
                 'page_title' => $request->page_title,
@@ -45,7 +45,7 @@ class SettingsController extends Controller
 
         } else {
 
-            Settings::create([
+            Setting::create([
                 'website_name' => $request->website_name,
                 'website_url' => $request->website_url,
                 'page_title' => $request->page_title,
