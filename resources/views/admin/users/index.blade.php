@@ -54,7 +54,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/users/edit/'. $item->id) }}"
+                                    <a href="{{ url('admin/users/'. $item->id. '/edit') }}"
                                         class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
