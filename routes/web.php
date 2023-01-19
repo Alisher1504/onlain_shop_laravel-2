@@ -147,6 +147,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/users/create', 'create');
         Route::post('/users', 'store');
         Route::get('/users/{id}/edit', 'edit');
+        Route::put('/users/{id}', 'update');
     });
 
 });

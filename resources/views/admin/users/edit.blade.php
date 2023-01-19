@@ -44,7 +44,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
                                     <label class="input-group-text">Email</label>
-                                    <input type="email" name="email" readonly value="{{ $user->email }}" class="form-control">
+                                    <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                                 </div>
                             </div>
 

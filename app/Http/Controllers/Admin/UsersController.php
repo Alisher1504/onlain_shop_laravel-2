@@ -45,4 +45,24 @@ class UsersController extends Controller
         return view('admin.users.edit', compact('user'));
     }
 
+    public function update(Request $request, $id) {
+
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+            'role_as' => ['required', 'integer'],
+        ]);
+
+        User::findOrFail($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_as' => $request->role_as
+        ]);
+        
+        return redirect('admin/users')->with('status', 'User update successflly');
+
+    }
+
 }
