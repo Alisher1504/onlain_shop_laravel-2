@@ -144,6 +144,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::controller(UsersController::class)->group(function() {
 
         Route::get('/users', 'index');
+        Route::get('/users/create', 'create');
 
     });
 

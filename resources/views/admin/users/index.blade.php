@@ -7,9 +7,9 @@
         <div class="col-md-12">
 
             @if (session('status'))
-            <div class="container bg-info bordered text-center my-3">
-                <h2 class="py-3 text-white">{{ session('status') }}</h2>
-            </div>
+                <div class="container bg-info bordered text-center my-3">
+                    <h2 class="py-3 text-white">{{ session('status') }}</h2>
+                </div>
             @endif
 
             <div class="card">
@@ -18,8 +18,9 @@
                     <h3>
                         Users
 
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-primary btn-sm float-end">add
-                            Users</a>
+                        <a href="{{ url('admin/users/create') }}" class="btn btn-primary btn-sm float-end">
+                            add Users
+                        </a>
 
                     </h3>
 
@@ -53,11 +54,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/product/edit/'. $item->id) }}"
+                                    <a href="{{ url('admin/users/edit/'. $item->id) }}"
                                         class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/product/delete/'. $item->id) }}"
+                                    <a href="{{ url('admin/users/delete/'. $item->id) }}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
