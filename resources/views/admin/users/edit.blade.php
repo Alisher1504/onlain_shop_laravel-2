@@ -44,14 +44,14 @@
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
                                     <label class="input-group-text">Email</label>
-                                    <input type="email" name="email" value="{{ $user->email }}" class="form-control">
+                                    <input type="email" name="email" readonly value="{{ $user->email }}" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
                                     <label class="input-group-text">Password</label>
-                                    <input type="text" name="password" class="form-control">
+                                    <input type="text" name="password" value="{{ $user->password }}" class="form-control">
                                 </div>
                             </div>
 

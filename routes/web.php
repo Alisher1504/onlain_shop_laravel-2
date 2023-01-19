@@ -148,6 +148,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::post('/users', 'store');
         Route::get('/users/{id}/edit', 'edit');
         Route::put('/users/{id}', 'update');
+        Route::get('/users/{id}/delete', 'delete');
     });
 
 });

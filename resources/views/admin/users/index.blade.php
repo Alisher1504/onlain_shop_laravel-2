@@ -58,7 +58,7 @@
                                         class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/users/delete/'. $item->id) }}"
+                                    <a href="{{ url('admin/users/'. $item->id . '/delete') }}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
