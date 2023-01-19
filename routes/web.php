@@ -5,6 +5,7 @@ use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CardController;
@@ -136,6 +137,14 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('invoice/{id}', 'viewInvoice');
         Route::get('invoice/{id}/generate', 'generateInvoice');
         
+    });
+
+    //Users
+
+    Route::controller(UsersController::class)->group(function() {
+
+        Route::get('/users', 'index');
+
     });
 
 });
