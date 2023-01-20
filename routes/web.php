@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
 use App\Http\Controllers\Admin\AdminController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\Frontend\CardController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Frontend\ProfilController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishlistController;
@@ -58,6 +61,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/orders', [OrderController::class, 'index']);
     Route::get('orders/{id}', [OrderController::class, 'show']);
     
+    Route::get('/profil', [App\Http\Controllers\Frontend\ProfilController::class, 'index']);
+
 });
 
 
