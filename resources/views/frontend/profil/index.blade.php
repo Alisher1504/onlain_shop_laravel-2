@@ -4,12 +4,19 @@
     <div class="container">
         <div class="row justify-content-center">
 
+
+
             <div class="col-md-10">
                 <h4>User profil</h4>
                 <div class="underline"></div>
             </div>
 
+
+
             <div class="card-md-10">
+                @if (session('message'))
+                    <p class="alert alert-success">{{ session('message') }}</p>
+                @endif
                 <div class="card shadow">
                     <div class="card-header bg-primary">
                         <h4 class="mb-0 text-white">User Details</h4>
@@ -23,13 +30,15 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Username</label>
-                                        <input type="text" name="name" value="" class="form-control">
+                                        <input type="text" name="username" value="{{ Auth::user()->name }}"
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Email Address</label>
-                                        <input type="text" name="email" value="" class="form-control">
+                                        <input type="text" readonly value="{{ Auth::user()->email }}"
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -41,7 +50,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Zip pin code</label>
-                                        <input type="text" name="zip_code" value="" class="form-control">
+                                        <input type="text" name="pin_code" value="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -61,7 +70,7 @@
                     </div>
                 </div>
             </div>
-    
+
         </div>
     </div>
 </div>

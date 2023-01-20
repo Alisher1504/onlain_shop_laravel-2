@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('pin_code');
             $table->string('address', 500);
-            $table->foreign('user_id')->references('id')->on('users')->onDeleted('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
