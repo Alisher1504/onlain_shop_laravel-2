@@ -28,6 +28,9 @@
                                 <a href="{{ url('admin/invoice/'. $order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end">
                                     view invoice
                                 </a>
+                                <a href="{{ url('admin/invoice/'. $order->id.'/mail') }}" target="_blank" class="btn btn-info mx-3 text-white btn-sm float-end">
+                                    Send mail
+                                </a>
                             </h4>
                             <hr>
     
