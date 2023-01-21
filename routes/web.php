@@ -64,6 +64,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::post('/profil', [ProfilController::class, 'updateuserDetails']);
 
+    Route::get('/password-check', [ProfilController::class, 'viewPassword']);
+
 });
 
 

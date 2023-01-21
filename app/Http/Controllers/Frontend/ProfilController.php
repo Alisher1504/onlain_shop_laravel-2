@@ -42,4 +42,10 @@ class ProfilController extends Controller
 
     }
 
+
+    public function viewPassword() {
+        return view('frontend.profil.updatepass');
+    }
+
+
 }

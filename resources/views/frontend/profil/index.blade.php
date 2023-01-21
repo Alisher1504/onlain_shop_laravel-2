@@ -19,7 +19,9 @@
                 @endif
                 <div class="card shadow">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-0 text-white">User Details</h4>
+                        <h4 class="mb-0 text-white">User Details
+                            <a href="{{ url('password-check') }}" class="btn btn-warning float-end">Password update</a>                            
+                        </h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ url('profil') }}" method="POST">
