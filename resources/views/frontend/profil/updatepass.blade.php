@@ -8,15 +8,15 @@
 
 
             <div class="col-md-6">
-                @if (session('message'))
-                    <p class="alert alert-success">{{ session('message') }}</p>
+                @if (session('status'))
+                    <p class="alert alert-success">{{ session('status') }}</p>
                 @endif
                 <div class="card shadow">
                     <div class="card-header bg-primary">
                         <h4 class="mb-0 text-white">User password</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('profil') }}" method="POST">
+                        <form action="{{ url('password-check') }}" method="POST">
 
                             @csrf
 

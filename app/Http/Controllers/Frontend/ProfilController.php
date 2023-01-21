@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
 {
@@ -45,6 +47,30 @@ class ProfilController extends Controller
 
     public function viewPassword() {
         return view('frontend.profil.updatepass');
+    }
+
+    public function currentPassword(Request $request) {
+
+        $validator = Validator::make($request->all(),[
+            'current_password' => 'required|string|min:8',
+            'password' => 'required|string|min:8|confirmed'
+        ]);
+
+        $password_check = Hash::check($request->current_password, auth()->user()->password);
+
+        if($password_check) {
+            User::findOrFail(Auth::user()->id)->update([
+                'password' => Hash::make($request->password)
+            ]);
+
+            return redirect()->back()->with('status', 'password Update successfully');
+
+        } else {
+
+            return redirect()->back()->with('status', 'Current password does not math wuth old password');
+
+        }
+
     }
 
 
