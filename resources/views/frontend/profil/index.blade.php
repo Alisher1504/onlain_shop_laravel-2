@@ -44,19 +44,19 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Phone Number</label>
-                                        <input type="text" name="phone" value="{{ Auth::user()->userDetails->phone}}" class="form-control">
+                                        <input type="text" name="phone" value="{{ Auth::user()->userDetails->phone ?? ''}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Zip pin code</label>
-                                        <input type="text" name="pin_code" value="{{ Auth::user()->userDetails->pin_code}}" class="form-control">
+                                        <input type="text" name="pin_code" value="{{ Auth::user()->userDetails->pin_code ?? ''}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label>Address</label>
-                                        <textarea name="address" id="" rows="3" class="form-control">{{ Auth::user()->userDetails->address}}</textarea>
+                                        <textarea name="address" id="" rows="3" class="form-control">{{ Auth::user()->userDetails->address ?? ''}}</textarea>
                                     </div>
                                 </div>
 
