@@ -12,6 +12,7 @@
             
                 @forelse ($featured as $item)
                     <div class="col-md-3">
+                        <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
                         <div class="product-card">
                                 <div class="product-card-img">
                                     <label class="stock bg-success">New</label>
@@ -20,23 +21,19 @@
 
                                 </div>
                                 <div class="product-card-body">
-                                    <p class="product-brand">{{ $item->brend }}</p>
                                     <h5 class="product-name">
-                                        <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
+                                        
                                             {{ $item->name }}
-                                        </a>
+                                        
                                     </h5>
                                     <div>
-                                        <span class="selling-price">{{ $item->selling_price }}</span>
-                                        <span class="original-price">{{ $item->original_price }}</span>
+                                        <span class="selling-price">${{ $item->selling_price }}</span>
+                                        <span class="original-price">${{ $item->original_price }}</span>
                                     </div>
-                                    <div class="mt-2">
-                                        <a href="" class="btn btn1">Add To Cart</a>
-                                        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
-                                        <a href="" class="btn btn1"> View </a>
-                                    </div>
+                                    
                                 </div>
                         </div>
+                    </a>
                     </div>
                 @empty
                     <div class="col-md-12 p-2">

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->string('slug');
-            $table->string('brend')->nullable();
             $table->string('image')->nullable();
 
             $table->mediumText('small_description')->nullable();

@@ -52,9 +52,9 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ url('/profil') }}"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a>
+                                <li><a class="dropdown-item" href="{{ url('/orders') }}"><i class="fa fa-list"></i> My Orders</a></li>
+                                <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> My Wishlist <livewire:frontend.wishlist-count /></a></li>
+                                <li><a class="dropdown-item" href="{{ url('card') }}"><i class="fa fa-shopping-cart"></i> My Cart <livewire:frontend.card.card-count /></a>
                                 </li>
                                 @if (Auth::user()->role_as == '1')
                                 <li>
@@ -103,21 +103,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('featured-product') }}">Featured Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
                     </li>
                 </ul>
             </div>

@@ -3,9 +3,9 @@
     <div class="py-3 py-md-5 bg-light ">
         <div class="container card py-3">
             @if(session()->get('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
@@ -30,7 +30,8 @@
                         <div class="mt-2">
                             <div class="input-group">
                                 <span class="btn btn1" wire:click="decrementQuantity"><i class="fa fa-minus"></i></span>
-                                <input type="text" wire:model="quantityCount" value="{{ $this->quantityCount }}" class="input-quantity" />
+                                <input type="text" wire:model="quantityCount" value="{{ $this->quantityCount }}"
+                                    class="input-quantity" />
                                 <span class="btn btn1" wire:click="incrementQuantity"><i class="fa fa-plus"></i></span>
                             </div>
                         </div>
@@ -40,7 +41,8 @@
                                 <i class="fa fa-shopping-cart"></i> Add To Cart
                             </button>
 
-                            <button  type="button" wire:click="addToWisherlist({{ $product->id }})" readonly class="btn btn1">
+                            <button type="button" wire:click="addToWisherlist({{ $product->id }})" readonly
+                                class="btn btn1">
                                 <span wire:loading.remove wire:tagret="addToWisherlist">
                                     <i class="fa fa-heart"></i> Add To Wishlist
                                 </span>
@@ -76,44 +78,41 @@
     <div class="py-3 py-md-5 bg-white ">
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-md-12">
                     <h1>Related @if($category) <b>{{ $category->name }}</b> @endif Products</h1>
                     <div class="underline"></div>
                 </div>
 
                 @forelse ($category->products as $item)
-                    <div class="col-md-3">
+                <div class="col-md-3">
+                    <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
                         <div class="product-card">
-                                <div class="product-card-img">
-                                    <label class="stock bg-success">New</label>
+                            <div class="product-card-img">
+                                <label class="stock bg-success">New</label>
 
-                                    <img src="{{ asset('uploads/product/'. $item->image) }}" alt="Laptop">
+                                <img src="{{ asset('uploads/product/'. $item->image) }}" alt="Laptop">
 
+                            </div>
+                            <div class="product-card-body">
+                                <h5 class="product-name">
+
+                                    {{ $item->name }}
+
+                                </h5>
+                                <div>
+                                    <span class="selling-price">${{ $item->selling_price }}</span>
+                                    <span class="original-price">${{ $item->original_price }}</span>
                                 </div>
-                                <div class="product-card-body">
-                                    <p class="product-brand">{{ $item->brend }}</p>
-                                    <h5 class="product-name">
-                                        <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
-                                            {{ $item->name }}
-                                        </a>
-                                    </h5>
-                                    <div>
-                                        <span class="selling-price">{{ $item->selling_price }}</span>
-                                        <span class="original-price">{{ $item->original_price }}</span>
-                                    </div>
-                                    <div class="mt-2">
-                                        <a href="" class="btn btn1">Add To Cart</a>
-                                        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
-                                        <a href="" class="btn btn1"> View </a>
-                                    </div>
-                                </div>
+                                
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
                 @empty
-                    <div class="col-md-12 p-2">
-                        <h4>No Product Aviable</h4>
-                    </div>
+                <div class="col-md-12 p-2">
+                    <h4>No Product Aviable</h4>
+                </div>
                 @endforelse
 
             </div>

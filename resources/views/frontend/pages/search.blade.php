@@ -15,7 +15,7 @@
                     <div class="col-md-10">
                         <div class="product-card">
                             
-                            <div class="row ">
+                            <div class="row p-3">
                                 <div class="col-md-3">
                                     <div class="product-card-img">
                                         <label class="stock bg-success">New</label>
@@ -26,18 +26,17 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="product-card-body">
-                                        <p class="product-brand">{{ $item->brend }}</p>
                                         <h5 class="product-name">
                                             <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
                                                 {{ $item->name }}
                                             </a>
                                         </h5>
                                         <div>
-                                            <span class="selling-price">{{ $item->selling_price }}</span>
-                                            <span class="original-price">{{ $item->original_price }}</span>
+                                            <span class="selling-price">${{ $item->selling_price }}</span>
+                                            <span class="original-price">${{ $item->original_price }}</span>
                                         </div>
                                         
-                                        <p style="height: 45px; overflow: hidden;">
+                                        <p>
                                             <b>Description :</b> {{ $item->description }}
                                         </p>
 
