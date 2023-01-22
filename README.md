@@ -1,21 +1,23 @@
 ***
-My eCommerce
+
+My eCommerce 
+ 
 
 ***
 ```
-composer install
+composer install  
 ```
 ***
 ```
-copy .env.example .env
+copy .env.example .env 
 ```
 ***
 ```
-php artisan key:generate
+php artisan key:generate 
 ```
 ***
 ```
-npm install & npm run dev
+npm install & npm run dev 
 ```
 ***
 <img src="./public/readmi/rasm-7.png" alt="">
