@@ -6,9 +6,9 @@
     <div class="row">
         <div class="col-md-12">
 
-            @if (session('status'))
+            @if (session('message'))
                 <div class="container bg-info bordered text-center my-3">
-                    <h2 class="py-3 text-white">{{ session('status') }}</h2>
+                    <h2 class="py-3 text-white">{{ session('message') }}</h2>
                 </div>
             @endif
 
@@ -55,7 +55,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ url('admin/users/'. $item->id. '/edit') }}"
-                                        class="btn btn-success">Edit</a>
+                                        class="btn btn-warning">Edit</a>
                                 </td>
                                 <td>
                                     <a href="{{ url('admin/users/'. $item->id . '/delete') }}"

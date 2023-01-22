@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrendController;
 use App\Http\Controllers\CategoryCantroller;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ColorController;
-use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CardController;
@@ -153,7 +153,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     //Users
 
-    Route::controller(UsersController::class)->group(function() {
+    Route::controller(UserController::class)->group(function() {
 
         Route::get('/users', 'index');
         Route::get('/users/create', 'create');
