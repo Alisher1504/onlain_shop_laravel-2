@@ -70,14 +70,8 @@
                                     <input type="text" name="slug" class="form-control" placeholder="Slug" required>
                                 </div>
     
-                                <div class="mb-3">
-                                    <label for="">Brend</label>
-                                    <select name="brend" id="" class="form-control">
-                                        @foreach ($brends as $brend)
-                                            <option value="{{ $brend->id }}">{{ $brend->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                
+                                
     
                                 <div class="mb-3">
                                     <textarea name="small_description" id="" cols="30" rows="5" class="form-control" placeholder="Small_description" required></textarea>

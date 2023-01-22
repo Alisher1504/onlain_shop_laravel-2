@@ -16,7 +16,7 @@
                     <div class="card-header">
 
                         <h3>
-                            Category
+                            Product
 
                             <a href="{{ url('admin/product/create') }}" class="btn btn-primary btn-sm float-end">add product</a>
 
