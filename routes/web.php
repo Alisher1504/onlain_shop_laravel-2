@@ -93,14 +93,6 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::put('category/update/{id}', [CategoryCantroller::class, 'update']);
     Route::get('category/delete/{id}', [CategoryCantroller::class, 'delete']);
     
-    // Brends
-
-    Route::get('/brends', [BrendController::class, 'index']);
-    Route::get('/brends/create', [BrendController::class, 'create']);
-    Route::post('/brends/store', [BrendController::class, 'store']);
-    Route::get('/brends/update/{id}', [BrendController::class, 'update']);
-    Route::put('/brends/edit/{id}', [BrendController::class, 'edit']);
-    Route::get('/brends/delete/{id}', [BrendController::class, 'delete']);
     
     // Product
 
@@ -111,19 +103,6 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/product/edit/{id}', 'edit');
         Route::put('/product/update/{id}', 'update');
         Route::get('/product/delete/{id}', 'delete');
-    });
-
-    // Colors
-
-    Route::controller(ColorController::class)->group(function() {
-       
-        Route::get('colors', 'index');
-        Route::get('colors/create', 'create');
-        Route::post('colors/store', 'store');
-        Route::get('colors/edit/{id}', 'edit');
-        Route::put('colors/update/{id}', 'update');
-        Route::get('colors/delete/{id}', 'delete');
-        
     });
 
     // Slider

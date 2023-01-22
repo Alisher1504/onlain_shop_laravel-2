@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Brends;
 use App\Models\Product;
 use App\Models\Catagory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +15,6 @@ class Product extends Model
         'category_id',
         'name',
         'slug',
-        'brend',
         'image',
         'small_description',
         'description',

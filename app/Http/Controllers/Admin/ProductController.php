@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Brends;
 use App\Models\Product;
 use App\Models\Catagory;
 use Illuminate\Http\Request;
@@ -19,8 +18,7 @@ class ProductController extends Controller
 
     public function create(){
         $categorys = Catagory::all();
-        $brends = Brends::all();
-        return view('admin.product.create', compact('categorys', 'brends'));
+        return view('admin.product.create', compact('categorys'));
     }
 
     // public function store(ProductFormRequest $request){
@@ -103,9 +101,8 @@ class ProductController extends Controller
 
     public function edit($id) {
         $categorys = Catagory::all();
-        $brends = Brends::all();
         $product = Product::find($id);
-        return view('admin.product.edit', compact('product', 'categorys', 'brends'));
+        return view('admin.product.edit', compact('product', 'categorys'));
     }
 
     public function update(Request $request, $id) {
