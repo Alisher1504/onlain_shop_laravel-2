@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Mail\InvoisMailOrder;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 
 class AdminOrderController extends Controller
@@ -70,5 +72,6 @@ class AdminOrderController extends Controller
         return $pdf->download('invoice-'.$order->id.'-'.$todayDate.'.pdf');
 
     }
+
 
 }

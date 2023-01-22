@@ -14,9 +14,10 @@ use App\Models\Main;
 class FrontController extends Controller
 {
     public function index() {
+        $newArrive = Product::latest()->take(16)->get();
         $slider = Slider::where('status', '0')->get();
         $trendingProduct = Product::where('trending', '1')->latest()->take(15)->get();
-        return view('frontend.index', compact('slider', 'trendingProduct'));
+        return view('frontend.index', compact('slider', 'trendingProduct', 'newArrive'));
     }
 
     public function search(Request $request) {

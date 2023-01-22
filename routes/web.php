@@ -147,6 +147,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
         Route::get('invoice/{id}', 'viewInvoice');
         Route::get('invoice/{id}/generate', 'generateInvoice');
+
         
     });
 

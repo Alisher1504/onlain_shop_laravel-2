@@ -123,6 +123,61 @@
     </div>
 </div>
 
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h4>New Arrive Product</h4>
+                <div class="underline"></div>
+            </div>
+
+            @if ($newArrive)
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme trending-product">
+                    @foreach ($newArrive as $item)
+                        <div class="item">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <label class="stock bg-danger">New</label>
+
+                                    <img src="{{ asset('uploads/product/'. $item->image) }}" alt="Laptop">
+
+                                </div>
+                                <div class="product-card-body">
+                                    <p class="product-brand">{{ $item->brend }}</p>
+                                    <h5 class="product-name">
+                                        <a href="{{ url('/collections/'. $item->category->slug. '/' . $item->slug) }}">
+                                            {{ $item->name }}
+                                        </a>
+                                    </h5>
+                                    <div>
+                                        <span class="selling-price">{{ $item->selling_price }}</span>
+                                        <span class="original-price">{{ $item->original_price }}</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="" class="btn btn1">Add To Cart</a>
+                                        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                        <a href="" class="btn btn1"> View </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            @else
+            <div class="col-md-12">
+                <div class="p-2">
+                    <h4>No Product Aviable</h4>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
 
 @endsection
 

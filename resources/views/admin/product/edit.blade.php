@@ -127,13 +127,13 @@
                                     </div>
 
                                     <div class="col-md-4 my-3 input-group">
-                                        <span class="input-group-text">trending</span>
-                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status" {{ $product->status == '1' ? 'checked' : '' }}>
+                                        <span class="input-group-text">featured</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="featured" {{ $product->featured == '1' ? 'checked' : '' }}>
                                     </div>
 
                                     <div class="col-md-4 my-3 input-group">
-                                        <span class="input-group-text">featured</span>
-                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status" {{ $product->featured == '1' ? 'checked' : '' }}>
+                                        <span class="input-group-text">status</span>
+                                        <input style="width: 50px; height: 50px;" type="checkbox" name="status" {{ $product->status == '1' ? 'checked' : '' }}>
                                     </div>
 
                                 </div>
